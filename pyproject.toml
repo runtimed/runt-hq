@@ -1,0 +1,19 @@
+[project]
+name = "runt-hq"
+version = "0.1.0"
+description = "API server to start and manage runt agents"
+readme = "README.md"
+authors = [
+    { name = "Anil Kulkarni", email = "akulkarni@anaconda.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.116.1",
+]
+
+[project.scripts]
+runt-hq = "runt_hq.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.8.0,<0.9"]
+build-backend = "uv_build"
