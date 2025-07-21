@@ -75,14 +75,14 @@ to a library:
 async def create_book(book: BookCreate, db: Session = Depends(get_db)):
     """
     Add a new book to the library.
-    
+
     Args:
         book: Book data to create
         db: Database session
-        
+
     Returns:
         Created book with ID and timestamps
-        
+
     Raises:
         HTTPException: If ISBN already exists or validation fails
     """
@@ -92,7 +92,7 @@ async def create_book(book: BookCreate, db: Session = Depends(get_db)):
         isbn=book.isbn,
         publication_year=book.publication_year
     )
-    
+
     try:
         db.add(db_book)
         db.commit()
@@ -138,7 +138,7 @@ def test_create_book(good_book):
   ...
 ])
 def test_invalid_books(good_book, name, changes):
-  # Validating all of the relevant error conditions 
+  # Validating all of the relevant error conditions
   # Ensures sanitization is correct, now and in the future
   book = good_book.dict()
   new_book = good book / changes
